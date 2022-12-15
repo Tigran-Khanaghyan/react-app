@@ -5,22 +5,22 @@ function Card({ data }) {
     <>
       {data.products.map((elem) => {
         return (
-          <div>
+          <div key={elem.id}>
             <div id="container">
-              <div class="product-details">
+              <div className="product-details">
                 <h1>{elem.title}</h1>
-                <span class="hint-star star">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                <span className="hint-star star">
+                  <i className="fa fa-star" aria-hidden="true"></i>
+                  <i className="fa fa-star" aria-hidden="true"></i>
+                  <i className="fa fa-star" aria-hidden="true"></i>
+                  <i className="fa fa-star" aria-hidden="true"></i>
+                  <i className="fa fa-star-o" aria-hidden="true"></i>
                 </span>
 
-                <p class="information">{elem.description}</p>
+                <p className="information">{elem.description}</p>
               </div>
 
-              <div class="product-image">
+              <div className="product-image">
                 <img src={elem.thumbnail} alt="" />
               </div>
             </div>

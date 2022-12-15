@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import "./App.css";
 import Card from "./components/Card/Card";
+import InputLabel from "./components/InputLabel/InputLabel";
 
 function App() {
-  const limit = 10;
+  const [limit, setLimit] = useState(10);
   const [data, setData] = useState(null);
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -18,20 +19,20 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, [itemOffset]);
+  }, [itemOffset, limit]);
 
   if (!data) return;
-  console.log(data);
 
   const pageCount = Math.ceil(data.total / limit);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * 10) % data.total;
+    const newOffset = (event.selected * limit) % data.total;
     setItemOffset(newOffset);
   };
 
   return (
     <div className="container">
+      <InputLabel setLimit={setLimit} />
       <div className="App">
         <Card data={data} />
       </div>
