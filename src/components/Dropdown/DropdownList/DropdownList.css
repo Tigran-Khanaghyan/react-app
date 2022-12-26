@@ -1,0 +1,8 @@
+.dropdownlist {
+  width: 100%;
+  height: 290px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
