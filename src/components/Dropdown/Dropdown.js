@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search/Search";
-import "./Dropdown.css";
+import DropdownList from "./DropdownList/DropdownList";
 import useComponentVisible from "../../hooks/useComponentVisible";
+import "./Dropdown.css";
 
 const Dropdown = () => {
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -15,19 +16,10 @@ const Dropdown = () => {
       .then((data) => setData(data));
   };
 
-  const handleClick = (event, elem) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setValue(elem.title);
-  };
-
   useEffect(() => {
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
-
-  const className = data.products?.length ? "dropdownlist" : "dropdownlist-none";
-
   return (
     <div className="container" ref={ref}>
       <Search
@@ -36,20 +28,7 @@ const Dropdown = () => {
         setIsComponentVisible={setIsComponentVisible}
         isComponentVisible={isComponentVisible}
       />
-      {isComponentVisible && (
-        <div className={className}>
-          {data.products?.map((elem) => {
-            return (
-              <div
-                key={elem.title}
-                onClick={(event) => handleClick(event, elem)}
-              >
-                {elem.title}
-              </div>
-            );
-          })}
-        </div>
-      )}
+      {isComponentVisible && <DropdownList data={data} setValue={setValue} />}
     </div>
   );
 };
