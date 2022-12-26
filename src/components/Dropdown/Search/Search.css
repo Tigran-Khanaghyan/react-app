@@ -35,7 +35,6 @@
   background: var(--color-light);
   padding: 0 1.6rem;
   appearance: none;
-  transition: all var(--dur) var(--bez);
   transition-property: width, border-radius;
   z-index: 1;
   position: relative;
@@ -54,4 +53,17 @@
 }
 .dropdown-button {
   display: block;
+}
+
+.select-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--height);
+  position: absolute;
+  font-family: var(--font-fam);
+  border: 0;
+  font-size: 1.8rem;
+  padding:1.6rem;
+  background: var(--color-light)
 }
