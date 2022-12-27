@@ -5,6 +5,7 @@ import DropdownItem from "./DropdownItem/DropdownItem";
 import Delete from "../../asserts/Icons/Delete";
 import Button from "../../shared/Button";
 import "./Dropdown.css";
+import DropdownList from "./DropdownList/DropdownList";
 
 const Dropdown = ({ showSearch }) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -36,36 +37,41 @@ const Dropdown = ({ showSearch }) => {
   }, [value, isComponentVisible]);
 
   return (
-    <div className="container" ref={ref}>
-      <div className="select-container">
-        {isComponentVisible && showSearch ? (
-          <Search value={value} setValue={setValue} />
-        ) : (
-          <Button className="select-button" onClick={handleOpenClick}>
-            <span>{choosedElement ? choosedElement : "Select an element"}</span>
-          </Button>
-        )}
-        {choosedElement && (
-          <Button className={"delete-button"} onClick={handleDelete}>
-            <Delete width={25} height={25} />
-          </Button>
-        )}
-      </div>
-
-      {isComponentVisible && (
-        <div className="dropdownlist">
-          {data.products.map((elem) => {
-            return (
-              <DropdownItem
-                key={elem.title}
-                elem={elem}
-                setIsComponentVisible={setIsComponentVisible}
-                setChoosedElement={setChoosedElement}
-              />
-            );
-          })}
+    <div className="lists-container">
+      <div className="container" ref={ref}>
+        <div className="select-container">
+          {isComponentVisible && showSearch ? (
+            <Search value={value} setValue={setValue} />
+          ) : (
+            <Button className="select-button" onClick={handleOpenClick}>
+              <span>
+                {choosedElement ? choosedElement : "Select an element"}
+              </span>
+            </Button>
+          )}
+          {choosedElement && (
+            <Button className={"delete-button"} onClick={handleDelete}>
+              <Delete width={25} height={25} />
+            </Button>
+          )}
         </div>
-      )}
+
+        {isComponentVisible && (
+          <div className="dropdownlist">
+            {data.products.map((elem) => {
+              return (
+                <DropdownItem
+                  key={elem.title}
+                  elem={elem}
+                  setIsComponentVisible={setIsComponentVisible}
+                  setChoosedElement={setChoosedElement}
+                />
+              );
+            })}
+          </div>
+        )}
+      <DropdownList data={data}/>
+      </div>
     </div>
   );
 };

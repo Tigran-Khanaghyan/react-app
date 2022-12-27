@@ -1,24 +1,26 @@
 import React from "react";
 import "./DropdownList.css";
 
-const DropdownList = ({ data, setValue }) => {
-  const handleClick = (event, elem) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setValue(elem.title);
-  };
-  if (data.products.length <= 1) {
-    return;
-  }
+const DropdownList = ({ data }) => {
+  if (!data) return;
   return (
-    <div className="dropdownlist">
-      {data.products.map((elem) => {
-        return (
-          <div className="dropdown-element" key={elem.title} onClick={(event) => handleClick(event, elem)}>
-            {elem.title}
-          </div>
-        );
-      })}
+    <div>
+      <form id="autoform">
+        <label htmlFor="shop">Shop</label>
+        <input
+          list="data"
+          id="shop"
+          name="technic"
+          size="50"
+          autoComplete="off"
+        />
+        <datalist id="data">
+          {data.products?.map((elem) => {
+            return <option value={elem.title} key={elem.title}></option>;
+          })}
+        </datalist>
+        <button type="submit">submit</button>
+      </form>
     </div>
   );
 };
