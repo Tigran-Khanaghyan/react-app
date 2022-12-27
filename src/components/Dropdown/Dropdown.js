@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Search from "./Search/Search";
 import useComponentVisible from "../../hooks/useComponentVisible";
+import Search from "./Search/Search";
 import DropdownItem from "./DropdownItem/DropdownItem";
 import Delete from "../../asserts/Icons/Delete";
-import "./Dropdown.css";
 import Button from "../../shared/Button";
+import "./Dropdown.css";
 
-const Dropdown = ({ showSearch = true }) => {
+const Dropdown = ({ showSearch }) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible(false);
   const [data, setData] = useState([]);
