@@ -1,5 +1,7 @@
 import React from "react";
 import Delete from "../../asserts/Icons/Delete";
+import Button from "../../shared/Button";
+import { CANCEL_BUTTON, DELETE_BUTTON } from "../../constants";
 import "./Modal.css";
 
 const Modal = ({ setIsOpen, message, title }) => {
@@ -11,20 +13,22 @@ const Modal = ({ setIsOpen, message, title }) => {
           <div className={"modalHeader"}>
             <h5 className={"heading"}>{title}</h5>
           </div>
-          <button className={"closeBtn"} onClick={() => setIsOpen(false)}>
+          <Button className={"closeBtn"} onClick={() => setIsOpen(false)}>
             <Delete height={25} width={25} />
-          </button>
-          <div className={"modalContent"}>
-            {message}
-          </div>
+          </Button>
+          <div className={"modalContent"}>{message}</div>
           <div className={"modalActions"}>
             <div className={"actionsContainer"}>
-              <button className={"deleteBtn"} onClick={() => setIsOpen(false)}>
-                Delete
-              </button>
-              <button className={"cancelBtn"} onClick={() => setIsOpen(false)}>
-                Cancel
-              </button>
+              <Button
+                className={"deleteBtn"}
+                onClick={() => setIsOpen(false)}
+                name={DELETE_BUTTON}
+              />
+              <Button
+                className={"cancelBtn"}
+                onClick={() => setIsOpen(false)}
+                name={CANCEL_BUTTON}
+              />
             </div>
           </div>
         </div>
