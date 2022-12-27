@@ -18,7 +18,6 @@
 .dropdown-form {
   position: relative;
   width: 100%;
-  /* background: var(--color-brand); */
   margin-top: 1rem;
 }
 .dropdown-input {
@@ -38,21 +37,6 @@
   z-index: 1;
   position: relative;
 }
-/* .dropdown-button {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: var(--btn-width);
-  font-weight: bold;
-  background: var(--color-brand);
-} */
-/* .dropdown-input:not(:placeholder-shown) {
-  width: calc(100% - var(--btn-width));
-} */
-/* .dropdown-button {
-  display: block;
-} */
 
 /* .dropdown-input[type="search"]::-webkit-search-decoration,
 .dropdown-input[type="search"]::-webkit-search-cancel-button,

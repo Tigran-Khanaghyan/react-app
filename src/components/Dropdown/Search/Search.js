@@ -26,9 +26,6 @@ const Search = ({
         placeholder="Search..."
         required
       />
-      {/* <button className="dropdown-button" type="submit">
-        Go
-      </button> */}
     </form>
   );
 };

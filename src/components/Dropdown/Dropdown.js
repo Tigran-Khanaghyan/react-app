@@ -4,6 +4,7 @@ import useComponentVisible from "../../hooks/useComponentVisible";
 import DropdownItem from "./DropdownItem/DropdownItem";
 import Delete from "../../asserts/Icons/Delete";
 import "./Dropdown.css";
+import Button from "../../shared/Button";
 
 const Dropdown = ({ showSearch = true }) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -40,14 +41,14 @@ const Dropdown = ({ showSearch = true }) => {
         {isComponentVisible && showSearch ? (
           <Search value={value} setValue={setValue} />
         ) : (
-          <button className="select-button" onClick={handleOpenClick}>
+          <Button className="select-button" onClick={handleOpenClick}>
             <span>{choosedElement ? choosedElement : "Select an element"}</span>
-          </button>
+          </Button>
         )}
         {choosedElement && (
-          <button className={"delete-button"} onClick={handleDelete}>
+          <Button className={"delete-button"} onClick={handleDelete}>
             <Delete width={25} height={25} />
-          </button>
+          </Button>
         )}
       </div>
 
