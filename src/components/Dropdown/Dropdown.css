@@ -3,17 +3,43 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 50%;
 }
 
 .dropdownlist {
   width: 100%;
-  height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   background-color: white;
+  height: 200px;
 }
 
 .dropdownlist-none {
   display: none;
+}
+
+.select-container {
+  display: flex;
+  width: 100%;
+}
+
+.select-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--height);
+  font-family: var(--font-fam);
+  border: 0;
+  font-size: 1.8rem;
+  padding: 1.6rem;
+  background: var(--color-light);
+  margin-top: 1rem;
+}
+
+.delete-button {
+  background-color: white;
+  border: none;
+  height: var(--height);
+  margin-top: 1rem;
 }

@@ -3,10 +3,7 @@ import "./Search.css";
 
 const Search = ({
   value,
-  setIsComponentVisible,
-  isComponentVisible,
   setValue,
-  showSearch,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,33 +15,20 @@ const Search = ({
     event.stopPropagation();
     setValue(event.target.value);
   };
-  const handleOpenClick = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setIsComponentVisible(true);
-  };
   return (
     <form onSubmit={handleSubmit} role="search" className="dropdown-form">
-      {isComponentVisible && showSearch ? (
-        <>
-          {" "}
-          <input
-            className="dropdown-input"
-            onChange={handleChange}
-            value={value}
-            type="search"
-            placeholder="Search..."
-            required
-          />
-          <button className="dropdown-button" type="submit">
-            Go
-          </button>
-        </>
-      ) : (
-        <button className="select-button" onClick={handleOpenClick}>
-          <span>{value ? value : "Search..."}</span>
-        </button>
-      )}
+      {" "}
+      <input
+        className="dropdown-input"
+        onChange={handleChange}
+        value={value}
+        type="search"
+        placeholder="Search..."
+        required
+      />
+      {/* <button className="dropdown-button" type="submit">
+        Go
+      </button> */}
     </form>
   );
 };

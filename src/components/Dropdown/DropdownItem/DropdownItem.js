@@ -1,12 +1,12 @@
 import React from "react";
-import './DropdownItem.css'
+import "./DropdownItem.css";
 
-const DropdownItem = ({ elem, setValue }) => {
-    
+const DropdownItem = ({ elem, setValue, setIsComponentVisible, setChoosedElement }) => {
   const handleClick = (event, elem) => {
     event.preventDefault();
     event.stopPropagation();
-    setValue(elem.title);
+    setIsComponentVisible(false);
+    setChoosedElement(elem.title)
   };
 
   return (

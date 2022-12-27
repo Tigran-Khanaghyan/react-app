@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search/Search";
 import useComponentVisible from "../../hooks/useComponentVisible";
-import "./Dropdown.css";
 import DropdownItem from "./DropdownItem/DropdownItem";
+import Delete from "../../asserts/Icons/Delete";
+import "./Dropdown.css";
 
-const Dropdown = () => {
+const Dropdown = ({ showSearch = true }) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible(false);
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
+  const [choosedElement, setChoosedElement] = useState("");
 
   const getData = () => {
     return fetch(`https://dummyjson.com/products/search?q=${value}`)
@@ -16,24 +18,49 @@ const Dropdown = () => {
       .then((data) => setData(data));
   };
 
+  const handleOpenClick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsComponentVisible(!isComponentVisible);
+    setValue("");
+  };
+
+  const handleDelete = () => {
+    setChoosedElement("");
+  };
+
   useEffect(() => {
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
+  }, [value, isComponentVisible]);
 
   return (
     <div className="container" ref={ref}>
-      <Search
-        value={value}
-        setValue={setValue}
-        setIsComponentVisible={setIsComponentVisible}
-        isComponentVisible={isComponentVisible}
-      />
-      {isComponentVisible && data.products?.length > 1 && (
+      <div className="select-container">
+        {isComponentVisible && showSearch ? (
+          <Search value={value} setValue={setValue} />
+        ) : (
+          <button className="select-button" onClick={handleOpenClick}>
+            <span>{choosedElement ? choosedElement : "Select an element"}</span>
+          </button>
+        )}
+        {choosedElement && (
+          <button className={"delete-button"} onClick={handleDelete}>
+            <Delete width={25} height={25} />
+          </button>
+        )}
+      </div>
+
+      {isComponentVisible && (
         <div className="dropdownlist">
           {data.products.map((elem) => {
             return (
-              <DropdownItem elem={elem} setValue={setValue} key={elem.title} />
+              <DropdownItem
+                key={elem.title}
+                elem={elem}
+                setIsComponentVisible={setIsComponentVisible}
+                setChoosedElement={setChoosedElement}
+              />
             );
           })}
         </div>
