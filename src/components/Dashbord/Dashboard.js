@@ -14,6 +14,10 @@ const Dashboard = () => {
     navigate("/dropdown");
   };
 
+  const handleModalRoute = () => {
+    navigate("/modal");
+  };
+
   return (
     <>
       <div className="dashboard">
@@ -22,6 +26,9 @@ const Dashboard = () => {
         </button>
         <button onClick={handleDropdownRoute} className={"dashboard-button"}>
           Dropdown App
+        </button>
+        <button onClick={handleModalRoute} className={"dashboard-button"}>
+          Modal App
         </button>
       </div>
       {/* <Route path="/pagination" element={<PaginationList />} /> */}

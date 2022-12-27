@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./components/Dashbord/Dashboard";
 import PaginationList from "./components/PaginationList/PaginationList";
 import Dropdown from "./components/Dropdown/Dropdown";
-import "./App.css";
+import ModalWindow from "./components/Modal";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/dropdown",
     element: <Dropdown />,
+  },
+  {
+    path: "/modal",
+    element: <ModalWindow />,
   },
 ]);
 
