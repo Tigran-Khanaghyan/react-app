@@ -2,14 +2,14 @@ import React from "react";
 import Delete from "../../asserts/Icons/Delete";
 import "./Modal.css";
 
-const Modal = ({ setIsOpen, message }) => {
+const Modal = ({ setIsOpen, message, title }) => {
   return (
     <>
       <div className="darkBG" onClick={() => setIsOpen(false)} />
       <div className="centered">
         <div className="modal-window">
           <div className={"modalHeader"}>
-            <h5 className={"heading"}>Dialog</h5>
+            <h5 className={"heading"}>{title}</h5>
           </div>
           <button className={"closeBtn"} onClick={() => setIsOpen(false)}>
             <Delete height={25} width={25} />

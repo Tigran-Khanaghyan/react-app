@@ -9,7 +9,7 @@ const ModalWindow = () => {
       <button className={"primaryBtn"} onClick={() => setIsOpen(true)}>
         Open Modal
       </button>
-      {isOpen && <Modal setIsOpen={setIsOpen} message='Hello Santa' />}
+      {isOpen && <Modal setIsOpen={setIsOpen} message='Hello Santa' title='Santa`s Modal'/>}
     </main>
   );
 };
