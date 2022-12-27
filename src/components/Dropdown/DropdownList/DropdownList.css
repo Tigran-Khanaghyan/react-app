@@ -3,5 +3,13 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: white;
+}
+
+.dropdown-element {
+  margin-left: 10px;
+}
+
+.dropdown-element:hover {
+  cursor: pointer;
+  background-color: #ADFF2F;
 }

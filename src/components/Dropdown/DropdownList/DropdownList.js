@@ -11,15 +11,15 @@ const DropdownList = ({ data, setValue }) => {
     return;
   }
   return (
-    <ul className="dropdownlist">
+    <div className="dropdownlist">
       {data.products.map((elem) => {
         return (
-          <div key={elem.title} onClick={(event) => handleClick(event, elem)}>
+          <div className="dropdown-element" key={elem.title} onClick={(event) => handleClick(event, elem)}>
             {elem.title}
           </div>
         );
       })}
-    </ul>
+    </div>
   );
 };
 

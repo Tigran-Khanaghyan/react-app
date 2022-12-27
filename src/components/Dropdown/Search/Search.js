@@ -6,6 +6,7 @@ const Search = ({
   setIsComponentVisible,
   isComponentVisible,
   setValue,
+  showSearch,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,7 +25,7 @@ const Search = ({
   };
   return (
     <form onSubmit={handleSubmit} role="search" className="dropdown-form">
-      {isComponentVisible ? (
+      {isComponentVisible && showSearch ? (
         <>
           {" "}
           <input

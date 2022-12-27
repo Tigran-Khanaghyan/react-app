@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search/Search";
-import DropdownList from "./DropdownList/DropdownList";
 import useComponentVisible from "../../hooks/useComponentVisible";
 import "./Dropdown.css";
+import DropdownItem from "./DropdownItem/DropdownItem";
 
 const Dropdown = () => {
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -20,6 +20,7 @@ const Dropdown = () => {
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
+
   return (
     <div className="container" ref={ref}>
       <Search
@@ -28,7 +29,15 @@ const Dropdown = () => {
         setIsComponentVisible={setIsComponentVisible}
         isComponentVisible={isComponentVisible}
       />
-      {isComponentVisible && <DropdownList data={data} setValue={setValue} />}
+      {isComponentVisible && data.products?.length > 1 && (
+        <div className="dropdownlist">
+          {data.products.map((elem) => {
+            return (
+              <DropdownItem elem={elem} setValue={setValue} key={elem.title} />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
