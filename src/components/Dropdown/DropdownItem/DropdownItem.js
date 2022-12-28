@@ -1,10 +1,8 @@
 import React from "react";
 import "./DropdownItem.css";
 
-const DropdownItem = ({ elem, setValue, setIsComponentVisible, setChoosedElement }) => {
-  const handleClick = (event, elem) => {
-    event.preventDefault();
-    event.stopPropagation();
+const DropdownItem = ({ elem, setIsComponentVisible, setChoosedElement }) => {
+  const handleClick = (elem) => {
     setIsComponentVisible(false);
     setChoosedElement(elem.title)
   };

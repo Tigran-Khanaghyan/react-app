@@ -7,7 +7,7 @@ import Button from "../../shared/Button";
 import "./Dropdown.css";
 import DropdownList from "./DropdownList/DropdownList";
 
-const Dropdown = ({ showSearch }) => {
+const Dropdown = ({ showSearch = true }) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible(false);
   const [data, setData] = useState([]);
@@ -20,9 +20,7 @@ const Dropdown = ({ showSearch }) => {
       .then((data) => setData(data));
   };
 
-  const handleOpenClick = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+  const handleOpenClick = () => {
     setIsComponentVisible(!isComponentVisible);
     setValue("");
   };
