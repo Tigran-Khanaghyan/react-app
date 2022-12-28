@@ -1,0 +1,31 @@
+.modalHeader {
+  position: relative;
+  height: 50px;
+  background: white;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.heading {
+  margin: 0;
+  padding: 10px;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+
+.closeBtn {
+  cursor: pointer;
+  padding: 7px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  color: #2c3e50;
+  background: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

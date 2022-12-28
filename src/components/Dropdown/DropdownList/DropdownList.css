@@ -15,7 +15,7 @@ body {
 label,
 button {
   display: block;
-  margin-top: 1em;
+  /* margin-top: 1em; */
 }
 
 /* <datalist> and <option> styling */
