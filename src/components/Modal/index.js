@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./Modal/Modal";
 import Button from "../../shared/Button";
-import { OPEN_MODAL } from "../../constants.js";
+import { MODAL_DEMO_MESSAGE, OPEN_MODAL } from "../../constants.js";
 import "./index.css";
 
 const ModalWindow = () => {
@@ -13,7 +13,10 @@ const ModalWindow = () => {
         onClick={() => setIsOpen(true)}
         name={OPEN_MODAL}
       />
-      {isOpen && <Modal setIsOpen={setIsOpen} />}
+      <Modal open={isOpen} setIsOpen={setIsOpen}>
+        {" "}
+        {MODAL_DEMO_MESSAGE}
+      </Modal>
     </main>
   );
 };

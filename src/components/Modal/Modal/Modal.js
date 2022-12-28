@@ -4,17 +4,21 @@ import ModalBody from "../ModalBody/ModalBody";
 import Footer from "../Footer/Footer";
 import "./Modal.css";
 
-const Modal = ({ header, modalBody, footer, setIsOpen }) => {
+const Modal = ({ header = true, footer = true, setIsOpen, open, children }) => {
   return (
     <>
-      <div className="darkBG" onClick={() => setIsOpen(false)} />
-      <div className="centered">
-        <div className="modal-window">
-          {header ? header : <Header setIsOpen={setIsOpen} />}
-          {modalBody ? modalBody : <ModalBody />}
-          {footer ? footer : <Footer setIsOpen={setIsOpen} />}
-        </div>
-      </div>
+      {open && (
+        <>
+          <div className="darkBG" onClick={() => setIsOpen(false)} />
+          <div className="centered">
+            <div className="modal-window">
+              {header && <Header setIsOpen={setIsOpen} />}
+              <ModalBody>{children}</ModalBody>
+              {footer && <Footer setIsOpen={setIsOpen} />}
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
