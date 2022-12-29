@@ -4,7 +4,6 @@ import Button from "../../../shared/Button";
 import "./Footer.css";
 
 const Footer = ({
-  setIsOpen,
   firstFooterButtonName = CONFIRM,
   secondFooterButtonName = CANCEL_BUTTON,
   showFirstFooterButton,
@@ -14,12 +13,10 @@ const Footer = ({
 }) => {
   const handleFirstCallback = () => {
     if (firstCallback) firstCallback();
-    setIsOpen(false);
   };
 
   const handleSecondCallback = () => {
     if (secondCallback) secondCallback();
-    setIsOpen(false);
   };
 
   return (

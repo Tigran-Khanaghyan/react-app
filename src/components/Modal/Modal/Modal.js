@@ -9,28 +9,33 @@ const Modal = ({
   showFooter = true,
   setIsOpen,
   open,
+  showInnerModal,
   showClose,
   children,
-  isDialog = true,
+  isDialog = false,
   firstFooterButtonName,
   secondFooterButtonName,
   showFirstFooterButton = true,
   showSecondFooterButton,
   firstCallback,
   secondCallback,
+  className,
 }) => {
   return (
     <>
       {open && (
         <>
-          {isDialog && <div className="dialogBg" />}
-          {!isDialog && (
-            <div className="darkBG" onClick={() => setIsOpen(false)}></div>
-          )}
+          <div
+            className="darkBG"
+            onClick={() => (!isDialog ? setIsOpen(false) : false)}
+          />
           <div className="centered">
-            <div className="modal-window">
+            <div className={className ? className : "modal-window"}>
               {showHeader && (
-                <Header setIsOpen={setIsOpen} showClose={showClose} />
+                <Header
+                  setIsOpen={setIsOpen}
+                  showClose={showClose && !isDialog}
+                />
               )}
               <ModalBody>{children}</ModalBody>
               {showFooter && (
@@ -42,6 +47,7 @@ const Modal = ({
                   showSecondFooterButton={showSecondFooterButton}
                   firstCallback={firstCallback}
                   secondCallback={secondCallback}
+                  showInnerModal={showInnerModal}
                 />
               )}
             </div>

@@ -35,3 +35,12 @@
   border-radius: 16px;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
 }
+
+.innerModal-window {
+  padding: 4px;
+  width: 250px;
+  height: 150px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
+}

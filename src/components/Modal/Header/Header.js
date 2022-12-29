@@ -4,12 +4,12 @@ import Button from "../../../shared/Button";
 import { MODAL_TITLE } from "../../../constants";
 import "./Header.css";
 
-const Header = ({ title, setIsOpen, showCLose = true }) => {
+const Header = ({ title, setIsOpen, showClose = true }) => {
   return (
     <div className={"modalHeader"}>
       {
         <>
-          {showCLose && (
+          {showClose && (
             <Button className={"closeBtn"} onClick={() => setIsOpen(false)}>
               <Delete height={25} width={25} />
             </Button>
