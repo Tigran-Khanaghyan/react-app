@@ -11,7 +11,7 @@ const Modal = ({
   open,
   showClose,
   children,
-  isDialog = false,
+  isDialog = true,
   firstFooterButtonName,
   secondFooterButtonName,
   showFirstFooterButton = true,
@@ -23,10 +23,10 @@ const Modal = ({
     <>
       {open && (
         <>
+          {isDialog && <div className="dialogBg" />}
           {!isDialog && (
-            <div className="dialogBg" onClick={() => setIsOpen(false)} />
+            <div className="darkBG" onClick={() => setIsOpen(false)}></div>
           )}
-          <div className="darkBG"></div>
           <div className="centered">
             <div className="modal-window">
               {showHeader && (
