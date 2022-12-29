@@ -5,19 +5,13 @@ import "./Footer.css";
 
 const Footer = ({
   setIsOpen,
-  firstFooterButtonName,
-  secondFooterButtonName,
+  firstFooterButtonName = CONFIRM,
+  secondFooterButtonName = CANCEL_BUTTON,
   showFirstFooterButton,
   showSecondFooterButton,
   firstCallback,
   secondCallback,
 }) => {
-  if (showFirstFooterButton && !firstFooterButtonName) {
-    firstFooterButtonName = CONFIRM;
-  }
-  if (showSecondFooterButton && !secondFooterButtonName) {
-    secondFooterButtonName = CANCEL_BUTTON;
-  }
   const handleFirstCallback = () => {
     if (firstCallback) firstCallback();
     setIsOpen(false);
