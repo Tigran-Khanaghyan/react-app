@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./Modal/Modal";
 import Button from "../../shared/Button";
-import { MODAL_DEMO_MESSAGE, OPEN_MODAL } from "../../constants.js";
+import { HELLO_SANTA, OPEN_MODAL } from "../../constants.js";
 import "./index.css";
 
 const ModalWindow = () => {
@@ -15,7 +15,7 @@ const ModalWindow = () => {
       />
       <Modal open={isOpen} setIsOpen={setIsOpen}>
         {" "}
-        {MODAL_DEMO_MESSAGE}
+        {HELLO_SANTA}
       </Modal>
     </main>
   );

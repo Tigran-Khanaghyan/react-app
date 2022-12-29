@@ -4,17 +4,46 @@ import ModalBody from "../ModalBody/ModalBody";
 import Footer from "../Footer/Footer";
 import "./Modal.css";
 
-const Modal = ({ header = true, footer = true, setIsOpen, open, children }) => {
+const Modal = ({
+  showHeader = true,
+  showFooter = true,
+  setIsOpen,
+  open,
+  showClose,
+  children,
+  isDialog = false,
+  firstFooterButtonName,
+  secondFooterButtonName,
+  showFirstFooterButton = true,
+  showSecondFooterButton,
+  firstCallback,
+  secondCallback,
+}) => {
   return (
     <>
       {open && (
         <>
-          <div className="darkBG" onClick={() => setIsOpen(false)} />
+          {!isDialog && (
+            <div className="dialogBg" onClick={() => setIsOpen(false)} />
+          )}
+          <div className="darkBG"></div>
           <div className="centered">
             <div className="modal-window">
-              {header && <Header setIsOpen={setIsOpen} />}
+              {showHeader && (
+                <Header setIsOpen={setIsOpen} showClose={showClose} />
+              )}
               <ModalBody>{children}</ModalBody>
-              {footer && <Footer setIsOpen={setIsOpen} />}
+              {showFooter && (
+                <Footer
+                  setIsOpen={setIsOpen}
+                  firstFooterButtonName={firstFooterButtonName}
+                  secondFooterButtonName={secondFooterButtonName}
+                  showFirstFooterButton={showFirstFooterButton}
+                  showSecondFooterButton={showSecondFooterButton}
+                  firstCallback={firstCallback}
+                  secondCallback={secondCallback}
+                />
+              )}
             </div>
           </div>
         </>
