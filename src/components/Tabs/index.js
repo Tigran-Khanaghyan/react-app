@@ -28,6 +28,7 @@ const Tabs = ({ data = tabs }) => {
             />
           );
         })}
+
       </div>
     </div>
   );

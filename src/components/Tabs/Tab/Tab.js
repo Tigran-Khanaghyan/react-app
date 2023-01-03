@@ -1,12 +1,13 @@
 import React from "react";
-import Button from "../../../shared/Button";
+import Content from "../Content/Content";
+import Header from "../Header/Header";
 import "./Tab.css";
 
-const Tab = ({ name, onClick, buttonClassName, infoClassName, children}) => {
+const Tab = ({ name, onClick, buttonClassName, infoClassName, children }) => {
   return (
     <div>
-      <Button name={name} onClick={onClick} className={buttonClassName} />
-      <div className={infoClassName}>{children}</div>
+      <Header name={name} onClick={onClick} buttonClassName={buttonClassName} />
+      <Content infoClassName={infoClassName} children={children} />
     </div>
   );
 };
