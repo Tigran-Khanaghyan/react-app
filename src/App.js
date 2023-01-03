@@ -3,6 +3,7 @@ import Dashboard from "./components/Dashbord/Dashboard";
 import PaginationList from "./components/PaginationList/PaginationList";
 import Dropdown from "./components/Dropdown/Dropdown";
 import ModalWindow from "./components/Modal";
+import Tabs from "./components/Tabs";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/modal",
     element: <ModalWindow />,
+  },
+  {
+    path: "/tabs",
+    element: <Tabs />,
   },
 ]);
 
