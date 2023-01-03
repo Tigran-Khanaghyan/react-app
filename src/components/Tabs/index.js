@@ -20,7 +20,7 @@ const Tabs = ({ data = tabs }) => {
           return (
             <Tab
               name={tab.tab}
-              tabInfo={tab.info}
+              children={tab.info}
               onClick={(event) => handleTabClick(event, tab.tab)}
               key={tab.tab}
               buttonClassName={buttonClassName}
