@@ -1,3 +1,9 @@
+.container {
+  display: flex;
+  height: 400px;
+  justify-content: space-between;
+}
+
 .tabs-container {
   display: flex;
   flex-direction: column;
