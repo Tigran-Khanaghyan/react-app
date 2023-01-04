@@ -1,8 +1,9 @@
 import React from "react";
+import './TabPanel.css'
 
 const TabPanel = (props) => {
   return (
-    <div style={{ display: props.newProp?.display }}>
+    <div className="tabpanel" style={{ display: props.newProp?.display }}>
       {props.children}
     </div>
   );
