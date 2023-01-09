@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "./Modal/Modal";
 import Button from "../../shared/Button";
-import { HELLO_SANTA, OPEN_MODAL } from "../../constants.js";
 import "./index.css";
+import { HELLO_SANTA, OPEN_MODAL } from "../../constants";
 
 const ModalWindow = () => {
   const [isOpen, setIsOpen] = useState(false);

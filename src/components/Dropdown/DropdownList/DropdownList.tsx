@@ -1,8 +1,9 @@
-import React from "react";
+import { IData } from "components/PaginationList/PaginationList";
+import { ReactElement } from "react";
 import "./DropdownList.css";
 
-const DropdownList = ({ data }) => {
-  if (!data) return;
+const DropdownList: React.FC<{data: IData}> = ({ data }): ReactElement | null => {
+  if (!data) return null;
   return (
     <div>
       <form id="autoform">
@@ -11,7 +12,6 @@ const DropdownList = ({ data }) => {
           list="data"
           id="shop"
           name="technic"
-          size="50"
           autoComplete="off"
         />
         <datalist id="data">

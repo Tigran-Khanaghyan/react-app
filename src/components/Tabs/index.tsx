@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Tab from "./Tab/Tab";
 import { tabs } from "../../data";
 import "./index.css";
 import LabTabs from "./LabTabs";
 
 const Tabs = ({ data = tabs }) => {
-  const [tabName, setTabName] = useState();
+  const [tabName, setTabName] = useState('');
 
-  const handleTabClick = (event, tabName) => {
+  const handleTabClick = (_event: React.MouseEvent<HTMLDivElement>, tabName: string) => {
     setTabName(tabName);
   };
 
@@ -23,7 +23,7 @@ const Tabs = ({ data = tabs }) => {
               <Tab
                 name={tab.tab}
                 children={tab.info}
-                onClick={(event) => handleTabClick(event, tab.tab)}
+                onClick={(event: React.MouseEvent<HTMLDivElement>) => handleTabClick(event, tab.tab)}
                 key={tab.tab}
                 buttonClassName={buttonClassName}
                 infoClassName={infoClassName}

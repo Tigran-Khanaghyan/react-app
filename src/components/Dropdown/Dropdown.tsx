@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useComponentVisible from "../../hooks/useComponentVisible";
 import Search from "./Search/Search";
 import DropdownItem from "./DropdownItem/DropdownItem";
 import Delete from "../../asserts/Icons/Delete";
 import Button from "../../shared/Button";
-import "./Dropdown.css";
 import DropdownList from "./DropdownList/DropdownList";
+import { IData } from "components/PaginationList/PaginationList";
+import "./Dropdown.css";
 
-const Dropdown = ({ showSearch = true }) => {
+interface DropdownProps {
+  showSearch?: boolean;
+}
+
+const Dropdown = ({ showSearch = true }: DropdownProps) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<IData>();
   const [value, setValue] = useState("");
   const [choosedElement, setChoosedElement] = useState("");
 
@@ -33,6 +38,8 @@ const Dropdown = ({ showSearch = true }) => {
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, isComponentVisible]);
+
+  if (!data) return null;
 
   return (
     <div className="lists-container">
@@ -68,7 +75,7 @@ const Dropdown = ({ showSearch = true }) => {
             })}
           </div>
         )}
-      <DropdownList data={data}/>
+        <DropdownList data={data} />
       </div>
     </div>
   );

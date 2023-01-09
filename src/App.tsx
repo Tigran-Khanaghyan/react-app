@@ -4,6 +4,8 @@ import PaginationList from "./components/PaginationList/PaginationList";
 import Dropdown from "./components/Dropdown/Dropdown";
 import ModalWindow from "./components/Modal";
 import Tabs from "./components/Tabs";
+import { ReactElement } from "react";
+
 
 const router = createBrowserRouter([
   {
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
+const App: React.FC = (): ReactElement =>  {
   return <RouterProvider router={router} />;
 }
 

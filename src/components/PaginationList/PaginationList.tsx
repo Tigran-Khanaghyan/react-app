@@ -1,11 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import Card from "../Card/Card";
 import InputLabel from "../InputLabel/InputLabel";
 
-const PaginationList = () => {
+export interface IProduct {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
+}
+
+export interface IData {
+  products: IProduct[];
+  total: number;
+  skip?: number;
+  limit?: number;
+}
+
+const PaginationList: React.FC = (): ReactElement | null => {
   const [limit, setLimit] = useState(10);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<IData>();
   const [itemOffset, setItemOffset] = useState(0);
 
   const getData = () => {
@@ -21,11 +42,11 @@ const PaginationList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemOffset, limit]);
 
-  if (!data) return;
+  if (!data) return null;
 
   const pageCount = Math.ceil(data.total / limit);
 
-  const handlePageClick = (event) => {
+  const handlePageClick = (event: {selected: number}) => {
     const newOffset = (event.selected * limit) % data.total;
     setItemOffset(newOffset);
   };
@@ -42,7 +63,7 @@ const PaginationList = () => {
         pageRangeDisplayed={5}
         pageCount={pageCount}
         previousLabel="< previous"
-        renderOnZeroPageCount={null}
+        renderOnZeroPageCount={() => null}
         breakClassName="page-item"
         breakLinkClassName="page-link"
         containerClassName="pagination"

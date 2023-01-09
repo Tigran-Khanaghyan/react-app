@@ -1,7 +1,15 @@
-import React from "react";
-import { CANCEL_BUTTON, CONFIRM } from "../../../constants";
+import { CANCEL_BUTTON, CONFIRM, FixMeLater } from "../../../constants";
 import Button from "../../../shared/Button";
 import "./Footer.css";
+
+export type FooterDefaultProps = {
+  firstFooterButtonName: string;
+  secondFooterButtonName: string;
+  showFirstFooterButton: boolean;
+  showSecondFooterButton: boolean;
+  firstCallback: (params?: FixMeLater) => FixMeLater | void;
+  secondCallback: (params?: FixMeLater) => FixMeLater | void;
+};
 
 const Footer = ({
   firstFooterButtonName = CONFIRM,
@@ -10,7 +18,7 @@ const Footer = ({
   showSecondFooterButton,
   firstCallback,
   secondCallback,
-}) => {
+}: FooterDefaultProps) => {
   const handleFirstCallback = () => {
     if (firstCallback) firstCallback();
   };
