@@ -1,7 +1,12 @@
-import React from "react";
 import "./Tab.css";
 
-const Tab = ({ label, value, onChange }) => {
+interface ITab {
+  label: string;
+  value: string;
+  onChange?: (param: unknown) => void;
+}
+
+const Tab = ({ label, value, onChange }: ITab) => {
   return (
     <>
       <button

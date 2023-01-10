@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Box from "./Box/Box";
 import Tab from "./Tab/Tab";
 import TabContext from "./TabContext/TabContext";
@@ -8,7 +8,7 @@ import TabPanel from "./TabPanel/TabPanel";
 const LabTabs = () => {
   const [value, setValue] = useState("1");
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_event: React.ChangeEvent, newValue: string) => {
     setValue(newValue);
   };
 
