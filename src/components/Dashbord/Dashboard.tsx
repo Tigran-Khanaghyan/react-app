@@ -18,7 +18,12 @@ const Dashboard = () => {
   const handleTabsRoute = () => {
     navigate("/tabs");
   };
-
+  const handleTableRoute = () => {
+    navigate("/table");
+  };
+  const handleHocRoute= () => {
+    navigate("/hoc");
+  };
   return (
     <>
       <div className="dashboard">
@@ -33,6 +38,12 @@ const Dashboard = () => {
         </button>
         <button onClick={handleTabsRoute} className={"dashboard-button"}>
           Tabs App
+        </button>
+        <button onClick={handleTableRoute} className={"dashboard-button"}>
+          Table
+        </button>
+        <button onClick={handleHocRoute} className={"dashboard-button"}>
+          Hoc
         </button>
       </div>
       {/* <Route path="/pagination" element={<PaginationList />} /> */}
