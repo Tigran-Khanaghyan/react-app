@@ -6,8 +6,8 @@ import Dropdown from "./components/Dropdown/Dropdown";
 import ModalWindow from "./components/Modal";
 import Tabs from "./components/Tabs";
 import RowSelectionTable from "table/tanstack/RowSelection";
-import  PrivateContent  from "components/PrivateContent/PrivateContent";
-
+import PrivateContent from "HoC/PrivateContent";
+import { HocContent } from "HoC";
 
 const router = createBrowserRouter([
   {
@@ -32,17 +32,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/table",
-    element: <RowSelectionTable/>
+    element: <RowSelectionTable />,
   },
   {
     path: "/hoc",
-    element: <PrivateContent isAuth={true}/>
-  }
+    element: <HocContent />,
+  },
 ]);
 
-const App = () =>  {
+const App = () => {
   return <RouterProvider router={router} />;
-  
-}
+};
 
 export default App;
