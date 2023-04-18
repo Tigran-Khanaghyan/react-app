@@ -73,4 +73,27 @@
   height: 400px;
   background-color: #fff;
   border: 1px solid #6c6c6c;
+  overflow-y: scroll;
+}
+
+.user1-message {
+  padding: 1rem;
+  color: black;
+  background-color: #04aa6d;
+}
+
+.user2-message {
+  padding: 1rem;
+  color: black;
+  background-color: cadetblue;
+}
+
+.left {
+  display: flex;
+  justify-content: start;
+}
+
+.right {
+  display: flex;
+  justify-content: end;
 }
