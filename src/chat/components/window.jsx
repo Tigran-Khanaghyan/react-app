@@ -36,12 +36,12 @@ function Window() {
         <div className="form-container">
           <h1>Chat</h1>
           <div className="conversation-container">
-            {conversation.map((item) => {
+            {conversation.map((item, index) => {
               const className =
                 item.id === "user1" ? "user1-message" : "user2-message";
               const containerclassName = item.id === "user1" ? "left" : "right";
               return (
-                <div className={containerclassName}>
+                <div className={containerclassName} key={index}>
                   <span className={className}>{item.message}</span>
                 </div>
               );
