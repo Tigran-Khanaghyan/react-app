@@ -1,0 +1,16 @@
+.chat-container {
+  width: 100%;
+}
+
+.chat-button {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background-color: aqua;
+  color: #6c6c6c;
+  border-radius: 50%;
+  border: none;
+  outline: 0;
+  right: 10px;
+  bottom: 20px;
+}
