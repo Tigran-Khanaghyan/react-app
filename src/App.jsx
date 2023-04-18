@@ -8,6 +8,7 @@ import Tabs from "./components/Tabs";
 import RowSelectionTable from "table/tanstack/RowSelection";
 import PrivateContent from "HoC/PrivateContent";
 import { HocContent } from "HoC";
+import Chat from "chat";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/hoc",
     element: <HocContent />,
+  },
+  {
+    path: "/chat",
+    element: <Chat />,
   },
 ]);
 
