@@ -15,15 +15,14 @@ function Window() {
     };
 
     setConversation((prev) => [...prev, newMessage]);
-  };
 
-  const sendSecondMessage = () => {
-    const newMessage = {
-      id: "user2",
-      message,
-    };
-
-    setConversation((prev) => [...prev, newMessage]);
+    setTimeout(() => {
+      const newMessage = {
+        id: "user2",
+        message,
+      };
+      setConversation((prev) => [...prev, newMessage]);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -63,9 +62,7 @@ function Window() {
           <Button type="submit" className="btn" onClick={sendFirstMessage}>
             Send user 1
           </Button>
-          <Button type="submit" className="btn" onClick={sendSecondMessage}>
-            Send user 2
-          </Button>
+
           <Button type="button" className="btn cancel">
             Close
           </Button>
